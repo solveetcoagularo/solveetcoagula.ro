@@ -1,77 +1,199 @@
+<!-- STRUCTURĂ GENERALĂ SITE -->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Solve Et Coagula - Home</title>
+  <title>Solve Et Coagula - Acasă</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
       background-color: black;
       color: #FFD700;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    html {
       scroll-behavior: smooth;
     }
     h1, h2 {
-      text-shadow: none;
+      font-family: 'Playfair Display', serif;
     }
-    a {
-      transition: color 0.3s ease;
+    section {
+      padding: 4rem 1rem;
+       margin-bottom: 10rem; /* distanță mai mare între secțiuni */
     }
-    a:hover {
-      color: #FFF700;
+    section p, section ul, section ol {
+      margin-bottom: 5rem; /* spațiu mai mare între paragrafe și liste */
     }
-    nav a {
-      font-weight: 600;
+    section h3 {
+      margin-bottom: 4rem; /* distanță între titlu și conținut */
     }
-    nav {
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
     }
-    .logo-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.1;
-      z-index: 0;
-      width: 50%;
-      max-height: calc(100vh - 5rem);
-      object-fit: contain;
-      pointer-events: none; /* prevenim interacțiunea cu logo-ul */
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    form input, form textarea {
+      background: transparent;
+      border: 1px solid #FFD700;
+      padding: 0.5rem;
+      color: #FFD700;
+      width: 100%;
+    }
+    form button {
+      margin-top: 1rem;
+      background: #FFD700;
+      color: black;
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+    });
+  </script>
 </head>
 <body>
 
-<header class="bg-black text-yellow-400 py-6 px-6 flex justify-center fixed w-full top-0 z-50 shadow-md">
-  <nav class="grid grid-cols-4 gap-8 w-full max-w-4xl text-2xl font-semibold">
-    <a href="index.html" class="hover:underline text-center">Home</a>
-    <a href="despre.html" class="hover:underline text-center">Despre mine</a>
-    <a href="servicii.html" class="hover:underline text-center">Servicii</a>
-    <a href="contact.html" class="hover:underline text-center">Contact</a>
+<!-- HEADER CU CONTACT SUS DREAPTA -->
+<header class="bg-black text-yellow-400 py-6 px-6 flex justify-between items-center fixed w-full top-0 z-50 shadow-md">
+  <nav class="flex gap-8 text-2xl font-semibold">
+    <a href="#home" class="hover:underline">Home</a>
+    <a href="#despre" class="hover:underline">Despre</a>
+    <a href="#servicii" class="hover:underline">Servicii</a>
+    <a href="#faq" class="hover:underline">Întrebări</a>
+    <a href="#contact" class="hover:underline">Contact</a>
   </nav>
+  <div class="text-right text-sm hidden md:block">
+    <p>📞 <a href="tel:+40756942725" class="underline hover:text-white">+40 756 942 725</a></p>
+    <p>✉️ <a href="mailto:contact@solveetcoagula.ro" class="underline hover:text-white">contact@solveetcoagula.ro</a></p>
+  </div>
 </header>
 
-<main class="pt-28 relative min-h-screen flex flex-col justify-center items-center text-center px-6 max-w-4xl mx-auto">
-  <img src="WhatsApp Image 2025-02-25 at 11.26.59.jpg" alt="Logo Ouroboros" class="logo-bg" />
-  <h1 class="text-5xl md:text-6xl lg:text-[6rem] font-extrabold tracking-wide z-10">
-    Solve Et Coagula
-  </h1>
-  <p class="mt-12 max-w-lg text-4xl md:text-5xl font-light italic z-10 mx-auto px-4">
-    Explorează-ți resursele interioare.
-  </p>
+<!-- SECTIUNE HOME -->
+<main id="home" class="pt-32 relative min-h-screen flex flex-col justify-center items-center text-center px-6 max-w-4xl mx-auto">
+  <h1 class="text-6xl font-extrabold tracking-wide fade">Solve Et Coagula</h1>
+  <p class="mt-8 text-3xl italic fade">Explorează-ți resursele interioare.</p>
+  <a href="#contact" class="mt-12 bg-yellow-400 text-black font-bold py-3 px-6 rounded hover:bg-yellow-300 transition-all fade">Programează o sesiune gratuită!</a>
 </main>
 
-<footer class="text-center py-6 text-sm text-yellow-600 font-semibold tracking-wide">
-  © 2025 Solve Et Coagula. Toate drepturile rezervate.
-</footer>
+<!-- DESPRE MINE -->
+<section id="despre" class="text-yellow-500 fade">
+  <div class="max-w-6xl mx-auto md:flex md:justify-start md:px-8">
+    <div class="md:w-1/2 px-4">
+      <h2 class="text-4xl font-bold mb-6">Despre mine</h2>
+      <p class="text-lg leading-relaxed">
+        Sunt psiholog, consilier în dezvoltare personală și existențială, iar în prezent urmez o formare în psihoterapie analitică, pentru a-mi aprofunda înțelegerea proceselor psihice și a sprijinului pe care îl pot oferi.<br><br>
+        Experiența mea se reflectă într-o abordare centrată pe reflecție, claritate și prezență. Ascultarea activă, analiza nuanțată și sprijinul empatic sunt fundamentele spațiului de lucru pe care îl propun — unul sigur, confidențial și susținător, în care poți explora cu încredere dificultățile personale și resursele tale interioare.<br><br>
+        Lucrez cu persoane care se confruntă cu anxietate, stres, crize existențiale, dificultăți în relații sau tranziții importante de viață, oferindu-le sprijin prin consiliere și procese de autocunoaștere. Văd aceste momente de impas nu doar ca obstacole, ci ca oportunități valoroase de creștere și reconectare cu propriul sens.<br><br>
+        Colaborarea noastră se bazează pe clarificare, explorare și pași concreți către echilibru emoțional și autenticitate personală. Scopul nu este doar depășirea dificultăților, ci și redescoperirea unei relații mai clare și asumate cu sinele.
+      </p>
+    </div>
+  </div>
+</section>
 
-</body>
-</html>
+<!-- SERVICII -->
+<section id="servicii" class="text-yellow-500 max-w-5xl mx-auto fade">
+  <h2 class="text-4xl font-bold text-center mb-6">Servicii oferite</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+    <!-- Coloana 1 -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-3">Dezvoltare personală autentică</h3>
+      <p class="mb-4">Acest serviciu este dedicat celor care doresc să își exploreze și să își consolideze identitatea personală, să se simtă mai centrați și mai aliniați cu valorile lor.</p>
+      <p><strong>Ce poți obține:</strong></p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Claritate emoțională</strong> – identificăm și înțelegem împreună emoțiile dificile, astfel încât să nu te mai simți copleșit(ă).</li>
+        <li><strong>Alinierea cu valorile personale</strong> – explorăm ce este cu adevărat important pentru tine, pentru a lua decizii coerente cu cine ești.</li>
+        <li><strong>Stabilirea și atingerea obiectivelor personale</strong> – lucrăm cu instrumente concrete pentru a seta direcții clare și pași realizabili.</li>
+        <li><strong>Dezvoltarea stimei de sine și încrederea în propriile alegeri</strong> – construim o relație sănătoasă cu tine însuți(ă), bazată pe acceptare și asumare.</li>
+        <li><strong>Reducerea stresului și a anxietății</strong> – prin exerciții și tehnici practice de reglare emoțională.</li>
+      </ul>
+    </div>
+    <!-- Coloana 2 -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-3">Consiliere existențială</h3>
+      <p class="mb-4">Această formă de consiliere se adresează persoanelor aflate în momente de reflecție profundă, criză sau tranziție, care caută sens și direcție în viața lor.</p>
+      <p><strong>Teme abordate:</strong></p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Crize de sens sau identitate</strong> – momente în care te întrebi „Cine sunt cu adevărat?” sau „Încotro mă îndrept?”.</li>
+        <li><strong>Blocaje personale</strong> – sentimente de stagnare, confuzie sau lipsă de motivație.</li>
+        <li><strong>Tranziții majore</strong> – schimbări profesionale, personale sau relaționale care solicită adaptare și claritate.</li>
+        <li><strong>Întrebări existențiale</strong> – viață, moarte, libertate, responsabilitate și alegeri.</li>
+        <li><strong>Reconectarea cu propriul scop și autenticitate</strong> – o înțelegere profundă a ceea ce contează cu adevărat pentru tine.</li>
+      </ul>
+      <p class="mt-4">Lucrăm împreună într-un spațiu de reflecție, fără judecată, în care îți poți formula propriile răspunsuri. Accentul este pus pe asumare, claritate și găsirea echilibrului interior.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTREBARI FRECVENTE -->
+<section id="faq" class="text-yellow-500 fade">
+  <div class="max-w-6xl mx-auto md:flex md:justify-end md:px-8">
+    <div class="md:w-1/2 px-4">
+      <h2 class="text-4xl font-bold mb-6 text-right">Întrebări frecvente</h2>
+      <div class="space-y-6 text-lg text-right">
+        <div>
+           <strong>1. Ce tipuri de servicii oferiți și cui se adresează acestea?</strong>
+      <p>Ofer servicii specializate în dezvoltare personală autentică și consiliere existențială. Aceste servicii sunt concepute pentru persoane care întâmpină dificultăți legate de blocaje emoționale, crize de sens, incertitudine privind direcția vieții sau care doresc să își îmbunătățească claritatea interioară și echilibrul emoțional.</p>
+    </div>
+    <div>
+      <strong>2. Care este procedura pentru programarea unei sesiuni?</strong>
+      <p>Pentru a programa o sesiune, vă invit să mă contactați prin intermediul datelor de contact disponibile. Ulterior, vom stabili împreună o dată și un interval orar convenabil, iar eu vă voi furniza toate informațiile necesare privind modul de desfășurare al întâlnirii.</p>
+    </div>
+    <div>
+      <strong>3. Care este durata unei sesiuni și în ce condiții se desfășoară?</strong>
+      <p>O sesiune are o durată standard de aproximativ 50 de minute și se realizează exclusiv în mediul online, utilizând platforme video securizate, care asigură confidențialitatea și confortul clientului. Înainte de fiecare sesiune, veți primi un link de acces, iar întâlnirile se desfășoară într-un cadru sigur, profesional și lipsit de orice formă de judecată.</p>
+    </div>
+    <div>
+      <strong>4. Cum este garantată confidențialitatea informațiilor oferite?</strong>
+      <p>Confidențialitatea reprezintă un principiu fundamental și este garantată prin respectarea strictă a normelor etice și legale aplicabile. Toate informațiile discutate în cadrul sesiunilor sunt protejate și nu vor fi divulgate terților fără acordul expres al clientului, cu excepția cazurilor prevăzute de lege.</p>
+    </div>
+    <div>
+      <strong>5. Care sunt metodele și tehnicile utilizate în consiliere?</strong>
+      <p>În consilierea pe care o ofer, folosesc o combinație de tehnici centrate pe client, dialog socratic, reflecție existențială și instrumente de reglare emoțională, toate adaptate nevoilor individuale ale fiecărei persoane. Accentul este pus pe explorare și asumare, nu pe diagnostic sau tratament.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="text-yellow-500 fade mt-20 mb-20">
+  <div class="max-w-6xl mx-auto md:flex md:justify-start md:px-8">
+    <div class="md:w-1/2 px-4">
+      <h2 class="text-4xl font-bold mb-6">Contact</h2>
+      <form action="mailto:contact@solveetcoagula.ro" method="post" enctype="text/plain" class="flex flex-col gap-4">
+        <label for="nume">Nume complet:</label>
+        <input type="text" id="nume" name="nume" required placeholder="Numele tău" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="exemplu@domeniu.com" />
+        <label for="mesaj">Mesaj:</label>
+        <textarea id="mesaj" name="mesaj" rows="6" required placeholder="Scrie mesajul tău aici..."></textarea>
+        <button type="submit">Trimite</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CU LINKURI UTILE -->
+<footer class="bg-black text-yellow-400 py-6 px-6 text-center text-sm flex flex-col md:flex-row justify-center gap-6 md:gap-12 max-w-6xl mx-auto">
+  <a href="#home" class="hover:underline">Home</a>
+  <a href="#despre" class="hover:underline">Despre</a>
+  <a href="#servicii" class="hover:underline">Servicii</a>
+  <a href="#faq" class="hover:underline">Întrebări</a>
+  <a href="#contact" class="hover:underline">Contact</a>
+  <a href="#confidentialitate" class="hover:underline">Confidențialitate</a>
+  <a href="#termeni" class="hover:underline">Termeni</a>
+</footer>
