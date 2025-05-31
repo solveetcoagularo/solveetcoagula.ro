@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solve Et Coagula - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #FFD700;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    h1, h2 {
+      text-shadow: none;
+    }
+    a {
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #FFF700;
+    }
+    nav a {
+      font-weight: 600;
+    }
+    nav {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    .logo-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.1;
+      z-index: 0;
+      width: 50%;
+      max-height: calc(100vh - 5rem);
+      object-fit: contain;
+      pointer-events: none; /* prevenim interacțiunea cu logo-ul */
+    }
+  </style>
+</head>
+<body>
+
+<header class="bg-black text-yellow-400 py-6 px-6 flex justify-center fixed w-full top-0 z-50 shadow-md">
+  <nav class="grid grid-cols-4 gap-8 w-full max-w-4xl text-2xl font-semibold">
+    <a href="index.html" class="hover:underline text-center">Home</a>
+    <a href="despre.html" class="hover:underline text-center">Despre mine</a>
+    <a href="servicii.html" class="hover:underline text-center">Servicii</a>
+    <a href="contact.html" class="hover:underline text-center">Contact</a>
+  </nav>
+</header>
+
+<main class="pt-28 relative min-h-screen flex flex-col justify-center items-center text-center px-6 max-w-4xl mx-auto">
+  <img src="WhatsApp Image 2025-02-25 at 11.26.59.jpg" alt="Logo Ouroboros" class="logo-bg" />
+  <h1 class="text-5xl md:text-6xl lg:text-[6rem] font-extrabold tracking-wide z-10">
+    Solve Et Coagula
+  </h1>
+  <p class="mt-12 max-w-lg text-4xl md:text-5xl font-light italic z-10 mx-auto px-4">
+    Explorează-ți resursele interioare.
+  </p>
+</main>
+
+<footer class="text-center py-6 text-sm text-yellow-600 font-semibold tracking-wide">
+  © 2025 Solve Et Coagula. Toate drepturile rezervate.
+</footer>
+
+</body>
+</html>
